@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flashcards - PMP Mock Testing Platform</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/flashcards.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <header class="page-header">
+    <div class="container header-inner">
+      <h1>Flashcards</h1>
+      <div class="header-actions">
+        <a class="btn btn-secondary" href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container flashcards-container">
+    <section class="controls">
+      <div class="control-group">
+        <label>Domain</label>
+        <select id="domainSelect">
+          <option value="All">All</option>
+          <option value="People">People</option>
+          <option value="Process">Process</option>
+          <option value="Business Environment">Business Environment</option>
+          <option value="Agile">Agile</option>
+          <option value="Hybrid">Hybrid</option>
+        </select>
+      </div>
+      <div class="control-group">
+        <label>Deck Size</label>
+        <select id="deckSize">
+          <option value="10">10</option>
+          <option value="20" selected>20</option>
+          <option value="30">30</option>
+        </select>
+      </div>
+      <button class="btn btn-primary" onclick="startDeck()"><i class="fas fa-play"></i> Start</button>
+    </section>
+
+    <section class="flashcard-area">
+      <div class="flashcard" id="flashcard">
+        <div class="front" id="cardFront">Click Start</div>
+        <div class="back" id="cardBack">Answer/Explanation</div>
+      </div>
+      <div class="flashcard-actions">
+        <button class="btn" onclick="prevCard()"><i class="fas fa-arrow-left"></i> Prev</button>
+        <button class="btn btn-secondary" onclick="flipCard()"><i class="fas fa-retweet"></i> Flip</button>
+        <button class="btn" onclick="nextCard()">Next <i class="fas fa-arrow-right"></i></button>
+      </div>
+      <div class="rating">
+        <button class="rate bad" onclick="rateCard(1)"><i class="fas fa-thumbs-down"></i> Hard</button>
+        <button class="rate ok" onclick="rateCard(2)"><i class="fas fa-meh"></i> Okay</button>
+        <button class="rate good" onclick="rateCard(3)"><i class="fas fa-thumbs-up"></i> Easy</button>
+      </div>
+      <div class="progress">
+        <span id="cardIndex">0</span>/<span id="cardTotal">0</span>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/questions.js"></script>
+  <script src="js/flashcards.js"></script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Results - PMP Mock Testing Platform</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/results.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Results Header -->
+    <div class="results-header">
+        <div class="header-content">
+            <h1>Test Results</h1>
+            <div class="header-actions">
+                <button class="btn btn-secondary" onclick="goToDashboard()">
+                    <i class="fas fa-home"></i> Dashboard
+                </button>
+                <button class="btn btn-primary" onclick="startNewTest()">
+                    <i class="fas fa-redo"></i> New Test
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Container -->
+    <div class="results-container">
+        <!-- Score Card -->
+        <div class="score-card">
+            <div class="score-circle">
+                <svg width="200" height="200">
+                    <circle cx="100" cy="100" r="90" class="score-bg"></circle>
+                    <circle cx="100" cy="100" r="90" class="score-fill" id="scoreCircle"></circle>
+                </svg>
+                <div class="score-text">
+                    <span class="score-value" id="scoreValue">0%</span>
+                    <span class="score-label" id="scoreLabel">Loading...</span>
+                </div>
+            </div>
+            <div class="score-details">
+                <h2 id="resultMessage">Calculating Results...</h2>
+                <p id="resultDescription">Please wait while we analyze your performance.</p>
+                <div class="score-stats">
+                    <div class="stat">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <strong id="correctAnswers">0</strong>
+                            <span>Correct</span>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-times-circle"></i>
+                        <div>
+                            <strong id="incorrectAnswers">0</strong>
+                            <span>Incorrect</span>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong id="timeSpent">0:00</strong>
+                            <span>Time Spent</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Performance Analysis -->
+        <div class="analysis-section">
+            <h2>Performance Analysis</h2>
+            <div class="analysis-grid">
+                <!-- Domain Performance -->
+                <div class="analysis-card">
+                    <h3>Domain Performance</h3>
+                    <canvas id="domainChart"></canvas>
+                </div>
+                
+                <!-- Detailed Breakdown -->
+                <div class="analysis-card">
+                    <h3>Detailed Breakdown</h3>
+                    <div class="breakdown-list" id="breakdownList">
+                        <!-- Will be populated dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recommendations -->
+        <div class="recommendations-section">
+            <h2>Study Recommendations</h2>
+            <div class="recommendations-grid" id="recommendationsGrid">
+                <!-- Will be populated dynamically -->
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-section">
+            <h2>What's Next?</h2>
+            <div class="action-cards">
+                <div class="action-card" onclick="reviewAnswers()">
+                    <div class="action-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h4>Review Answers</h4>
+                    <p>Go through all questions with detailed explanations</p>
+                    <button class="btn btn-primary">Review Now</button>
+                </div>
+                <div class="action-card" onclick="practiceWeakAreas()">
+                    <div class="action-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h4>Practice Weak Areas</h4>
+                    <p>Focus on domains where you need improvement</p>
+                    <button class="btn btn-primary">Start Practice</button>
+                </div>
+                <div class="action-card" onclick="shareResults()">
+                    <div class="action-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <h4>Share Results</h4>
+                    <p>Share your achievement with others</p>
+                    <button class="btn btn-primary">Share</button>
+                </div>
+                <div class="action-card" onclick="downloadReport()">
+                    <div class="action-icon">
+                        <i class="fas fa-download"></i>
+                    </div>
+                    <h4>Download Report</h4>
+                    <p>Get a detailed PDF report of your performance</p>
+                    <button class="btn btn-primary">Download</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparison Section -->
+        <div class="comparison-section">
+            <h2>Your Progress</h2>
+            <div class="comparison-content">
+                <div class="progress-chart">
+                    <canvas id="progressChart"></canvas>
+                </div>
+                <div class="progress-stats">
+                    <h3>Statistics</h3>
+                    <div class="stat-item">
+                        <span>Average Score</span>
+                        <strong id="avgScore">0%</strong>
+                    </div>
+                    <div class="stat-item">
+                        <span>Best Score</span>
+                        <strong id="bestScore">0%</strong>
+                    </div>
+                    <div class="stat-item">
+                        <span>Tests Taken</span>
+                        <strong id="testsTaken">0</strong>
+                    </div>
+                    <div class="stat-item">
+                        <span>Improvement</span>
+                        <strong id="improvement" class="positive">+0%</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confetti Animation -->
+    <div id="confetti-container"></div>
+
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/results.js"></script>
+</body>
+</html>

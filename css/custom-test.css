@@ -1,0 +1,11 @@
+/* Custom Test Builder Styles */
+body { background:#f8f9fa; margin:0; }
+.page-header { background:#fff; box-shadow:var(--shadow-md); }
+.header-inner { display:flex; align-items:center; justify-content:space-between; padding:16px 20px; }
+.builder-container { padding:24px 0 60px; }
+.card { background:#fff; border-radius:16px; box-shadow:var(--shadow-md); padding:18px; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; }
+.box { background:#f9fafb; border-radius:12px; padding:14px; }
+.check { display:block; margin:8px 0; color:var(--dark-color); }
+.range-value { margin-top:8px; color:var(--gray-color); }
+.actions { margin-top:18px; display:flex; justify-content:flex-end; }

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daily Challenge - PMP Mock Testing Platform</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/daily.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <header class="page-header">
+    <div class="container header-inner">
+      <h1>Daily Challenge</h1>
+      <div class="header-actions">
+        <a class="btn btn-secondary" href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container daily-container">
+    <section class="daily-card">
+      <div class="daily-header">
+        <div class="streak">
+          <i class="fas fa-fire"></i>
+          <span>Streak:</span>
+          <strong id="streakDays">0</strong>
+        </div>
+        <div class="timer">
+          <i class="fas fa-clock"></i>
+          <span id="dailyTimer">10:00</span>
+        </div>
+      </div>
+
+      <div class="question" id="dailyQuestion">Press Start to begin today's challenge.</div>
+      <div class="options" id="dailyOptions"></div>
+
+      <div class="daily-footer">
+        <div class="progress">
+          <div class="bar"><div class="fill" id="dailyProgress" style="width:0%"></div></div>
+          <div class="count"><span id="qIndex">0</span>/<span id="qTotal">0</span></div>
+        </div>
+        <div class="actions">
+          <button class="btn" onclick="prevDaily()"><i class="fas fa-chevron-left"></i> Prev</button>
+          <button class="btn btn-secondary" onclick="startDaily()"><i class="fas fa-play"></i> Start</button>
+          <button class="btn" onclick="nextDaily()">Next <i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="results card" id="dailyResult" style="display:none">
+      <h2>Today's Result</h2>
+      <p><strong id="dailyScore">0%</strong> correct</p>
+      <div class="result-actions">
+        <a class="btn btn-primary" href="review.html" onclick="prepareReviewFromDaily()"><i class="fas fa-book-open"></i> Review Answers</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/questions.js"></script>
+  <script src="js/daily.js"></script>
+</body>
+</html>

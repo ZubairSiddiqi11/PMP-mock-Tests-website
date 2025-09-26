@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Custom Test Builder - PMP Mock Testing Platform</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/custom-test.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <header class="page-header">
+    <div class="container header-inner">
+      <h1>Custom Test Builder</h1>
+      <div class="header-actions">
+        <a class="btn btn-secondary" href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container builder-container">
+    <section class="builder card">
+      <h2>Configure Your Test</h2>
+      <div class="grid">
+        <div class="box">
+          <h3>Domains</h3>
+          <label class="check"><input type="checkbox" value="People" checked> People</label>
+          <label class="check"><input type="checkbox" value="Process" checked> Process</label>
+          <label class="check"><input type="checkbox" value="Business Environment" checked> Business Environment</label>
+          <label class="check"><input type="checkbox" value="Agile" checked> Agile</label>
+          <label class="check"><input type="checkbox" value="Hybrid" checked> Hybrid</label>
+        </div>
+        <div class="box">
+          <h3>Question Count</h3>
+          <input type="range" id="count" min="10" max="180" step="10" value="50" oninput="updateRange(this)">
+          <div class="range-value"><span id="countVal">50</span> questions</div>
+          <h3 style="margin-top:20px">Timer</h3>
+          <input type="number" id="minutes" min="5" max="230" value="60" />
+          <div class="muted">Minutes</div>
+        </div>
+        <div class="box">
+          <h3>Mode Options</h3>
+          <label class="check"><input type="checkbox" id="instant" checked> Show instant feedback</label>
+          <label class="check"><input type="checkbox" id="shuffle" checked> Shuffle questions</label>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="btn btn-primary" onclick="buildAndStart()"><i class="fas fa-play"></i> Start Test</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/questions.js"></script>
+  <script src="js/custom-test.js"></script>
+</body>
+</html>

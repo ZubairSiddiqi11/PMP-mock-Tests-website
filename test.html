@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PMP Practice Test - Skill Up</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/test.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Test Header -->
+    <div class="test-header">
+        <div class="test-info">
+            <h2 id="testTitle">PMP Practice Test</h2>
+            <span class="test-mode" id="testMode">Full Exam Mode</span>
+        </div>
+        <div class="test-controls">
+            <div class="timer-container">
+                <i class="fas fa-clock"></i>
+                <span id="timer">230:00</span>
+            </div>
+            <button class="btn-pause" onclick="pauseTest()">
+                <i class="fas fa-pause"></i> Pause
+            </button>
+            <button class="btn-calculator" onclick="toggleCalculator()">
+                <i class="fas fa-calculator"></i>
+            </button>
+            <button class="btn-end" onclick="endTest()">
+                End Test
+            </button>
+        </div>
+    </div>
+
+    <!-- Test Container -->
+    <div class="test-container">
+        <!-- Question Navigation Sidebar -->
+        <div class="question-nav">
+            <div class="nav-header">
+                <h3>Questions</h3>
+                <div class="nav-stats">
+                    <span class="answered">0</span> / <span class="total">180</span>
+                </div>
+            </div>
+            <div class="nav-legend">
+                <div class="legend-item">
+                    <span class="legend-dot current"></span> Current
+                </div>
+                <div class="legend-item">
+                    <span class="legend-dot answered"></span> Answered
+                </div>
+                <div class="legend-item">
+                    <span class="legend-dot marked"></span> Marked
+                </div>
+                <div class="legend-item">
+                    <span class="legend-dot unanswered"></span> Not Answered
+                </div>
+            </div>
+            <div class="question-grid" id="questionGrid">
+                <!-- Question buttons will be generated here -->
+            </div>
+        </div>
+
+        <!-- Main Question Area -->
+        <div class="question-area">
+            <!-- Question Content -->
+            <div class="question-content">
+                <div class="question-header">
+                    <span class="question-number">Question <span id="currentQuestion">1</span> of <span id="totalQuestions">180</span></span>
+                    <button class="btn-mark" onclick="toggleMark()">
+                        <i class="far fa-flag"></i> Mark for Review
+                    </button>
+                </div>
+                
+                <div class="question-text" id="questionText">
+                    Loading question...
+                </div>
+
+                <div class="answer-options" id="answerOptions">
+                    <!-- Answer options will be generated here -->
+                </div>
+
+                <div class="question-footer">
+                    <div class="question-actions">
+                        <button class="btn-clear" onclick="clearAnswer()">
+                            Clear Answer
+                        </button>
+                    </div>
+                    <div class="navigation-buttons">
+                        <button class="btn-nav btn-prev" onclick="previousQuestion()">
+                            <i class="fas fa-chevron-left"></i> Previous
+                        </button>
+                        <button class="btn-nav btn-next" onclick="nextQuestion()">
+                            Next <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question Info Panel -->
+            <div class="question-info">
+                <div class="info-card">
+                    <h4>Test Progress</h4>
+                    <div class="progress-circle">
+                        <svg width="120" height="120">
+                            <circle cx="60" cy="60" r="54" class="progress-bg"></circle>
+                            <circle cx="60" cy="60" r="54" class="progress-fill" id="progressCircle"></circle>
+                        </svg>
+                        <div class="progress-text">
+                            <span id="progressPercent">0%</span>
+                            <small>Complete</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <h4>Statistics</h4>
+                    <div class="stat-row">
+                        <span>Answered:</span>
+                        <strong id="answeredCount">0</strong>
+                    </div>
+                    <div class="stat-row">
+                        <span>Marked:</span>
+                        <strong id="markedCount">0</strong>
+                    </div>
+                    <div class="stat-row">
+                        <span>Remaining:</span>
+                        <strong id="remainingCount">180</strong>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h4>Quick Actions</h4>
+                    <button class="btn-action" onclick="showMarkedQuestions()">
+                        <i class="fas fa-flag"></i> Review Marked
+                    </button>
+                    <button class="btn-action" onclick="showUnansweredQuestions()">
+                        <i class="fas fa-question-circle"></i> Show Unanswered
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Calculator Modal -->
+    <div id="calculatorModal" class="modal calculator-modal">
+        <div class="calculator-content">
+            <div class="calculator-header">
+                <h3>Calculator</h3>
+                <button class="close" onclick="toggleCalculator()">&times;</button>
+            </div>
+            <div class="calculator-display" id="calcDisplay">0</div>
+            <div class="calculator-buttons">
+                <button onclick="calcClear()">C</button>
+                <button onclick="calcDelete()">←</button>
+                <button onclick="calcInput('/')">/</button>
+                <button onclick="calcInput('*')">×</button>
+                <button onclick="calcInput('7')">7</button>
+                <button onclick="calcInput('8')">8</button>
+                <button onclick="calcInput('9')">9</button>
+                <button onclick="calcInput('-')">-</button>
+                <button onclick="calcInput('4')">4</button>
+                <button onclick="calcInput('5')">5</button>
+                <button onclick="calcInput('6')">6</button>
+                <button onclick="calcInput('+')">+</button>
+                <button onclick="calcInput('1')">1</button>
+                <button onclick="calcInput('2')">2</button>
+                <button onclick="calcInput('3')">3</button>
+                <button onclick="calcEquals()" class="equals">=</button>
+                <button onclick="calcInput('0')" class="zero">0</button>
+                <button onclick="calcInput('.')">.</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pause Modal -->
+    <div id="pauseModal" class="modal">
+        <div class="modal-content pause-content">
+            <h2><i class="fas fa-pause-circle"></i> Test Paused</h2>
+            <p>Your test has been paused. Take a break!</p>
+            <div class="pause-info">
+                <div class="pause-stat">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <strong id="pauseTime">00:00</strong>
+                        <small>Time Elapsed</small>
+                    </div>
+                </div>
+                <div class="pause-stat">
+                    <i class="fas fa-tasks"></i>
+                    <div>
+                        <strong id="pauseAnswered">0/180</strong>
+                        <small>Questions Answered</small>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary btn-large" onclick="resumeTest()">
+                <i class="fas fa-play"></i> Resume Test
+            </button>
+        </div>
+    </div>
+
+    <!-- End Test Confirmation Modal -->
+    <div id="endTestModal" class="modal">
+        <div class="modal-content">
+            <h2>End Test?</h2>
+            <p>Are you sure you want to end the test?</p>
+            <div class="test-summary">
+                <div class="summary-item">
+                    <span>Questions Answered:</span>
+                    <strong id="summaryAnswered">0</strong>
+                </div>
+                <div class="summary-item">
+                    <span>Questions Marked:</span>
+                    <strong id="summaryMarked">0</strong>
+                </div>
+                <div class="summary-item">
+                    <span>Questions Unanswered:</span>
+                    <strong id="summaryUnanswered">180</strong>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" onclick="closeEndTestModal()">
+                    Continue Test
+                </button>
+                <button class="btn btn-primary" onclick="submitTest()">
+                    Submit Test
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/questions.js"></script>
+    <script src="js/test.js"></script>
+</body>
+</html>

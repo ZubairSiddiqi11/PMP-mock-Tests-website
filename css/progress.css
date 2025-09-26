@@ -1,0 +1,27 @@
+/* Progress Page Styles */
+body { background: #f8f9fa; margin: 0; }
+.progress-header { background: white; box-shadow: var(--shadow-md); }
+.progress-header .container { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; }
+.progress-container { padding: 24px 0 60px; }
+.header-actions .btn { margin-left: 10px; }
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 24px; }
+.metric-card { background: white; border-radius: 14px; padding: 18px; display: flex; align-items: center; gap: 14px; box-shadow: var(--shadow-md); }
+.metric-icon { width: 52px; height: 52px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.2rem; }
+.metric-card h3 { margin: 0; color: var(--dark-color); font-size: 1.6rem; }
+.metric-card p { margin: 4px 0 0; color: var(--gray-color); font-size: .9rem; }
+.panel { background: white; border-radius: 16px; box-shadow: var(--shadow-md); margin-bottom: 24px; }
+.panel > h2 { margin: 0; padding: 18px 18px 0; color: var(--dark-color); }
+.panel-body { padding: 18px; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.recommendations { display: grid; gap: 12px; padding: 18px; }
+.recommendations .rec { background: #f8f9fa; border-left: 4px solid var(--primary-color); padding: 12px 14px; border-radius: 10px; }
+.recommendations .rec.urgent { border-left-color: var(--danger-color); }
+.recommendations .rec.moderate { border-left-color: var(--warning-color); }
+.history { padding: 16px; display: grid; gap: 12px; }
+.history-item { display: flex; align-items: center; justify-content: space-between; background: #f8f9fa; border-radius: 10px; padding: 12px 14px; }
+.history-item .left { display: flex; align-items: center; gap: 10px; }
+.badge { padding: 4px 10px; border-radius: 9999px; font-size: .8rem; color: white; }
+.badge.full { background: var(--primary-color); }
+.badge.quick { background: var(--success-color); }
+.badge.custom { background: var(--warning-color); }
+@media (max-width: 900px){ .grid-2 { grid-template-columns: 1fr; } }

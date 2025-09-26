@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="a1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="a2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#667eea"/>
+      <stop offset="100%" stop-color="#764ba2"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Decorative circles -->
+  <circle cx="90" cy="80" r="50" fill="url(#a1)" opacity="0.15"/>
+  <circle cx="520" cy="320" r="70" fill="url(#a2)" opacity="0.12"/>
+
+  <!-- Team figures -->
+  <g transform="translate(120,120)">
+    <!-- Person 1 -->
+    <circle cx="0" cy="0" r="24" fill="#f59e0b"/>
+    <rect x="-18" y="24" width="36" height="60" rx="8" fill="#fcd34d"/>
+  </g>
+  <g transform="translate(220,120)">
+    <!-- Person 2 -->
+    <circle cx="0" cy="0" r="24" fill="#3b82f6"/>
+    <rect x="-18" y="24" width="36" height="60" rx="8" fill="#93c5fd"/>
+  </g>
+  <g transform="translate(170,190)">
+    <!-- Person 3 -->
+    <circle cx="0" cy="0" r="24" fill="#10b981"/>
+    <rect x="-18" y="24" width="36" height="60" rx="8" fill="#6ee7b7"/>
+  </g>
+
+  <!-- Connection lines -->
+  <path d="M120,120 C160,90 180,90 220,120" stroke="#9ca3af" fill="none" stroke-width="2"/>
+  <path d="M120,120 C150,150 160,160 170,190" stroke="#9ca3af" fill="none" stroke-width="2"/>
+  <path d="M220,120 C200,150 190,160 170,190" stroke="#9ca3af" fill="none" stroke-width="2"/>
+
+  <!-- Chart card -->
+  <g transform="translate(330,100)">
+    <rect x="0" y="0" width="230" height="150" rx="12" fill="#ffffff" stroke="#e5e7eb"/>
+    <rect x="12" y="12" width="60" height="10" rx="5" fill="#e5e7eb"/>
+    <rect x="12" y="30" width="100" height="8" rx="4" fill="#e5e7eb"/>
+    <g transform="translate(12,55)">
+      <rect x="0" y="40" width="24" height="45" fill="#667eea" rx="4"/>
+      <rect x="34" y="30" width="24" height="55" fill="#764ba2" rx="4"/>
+      <rect x="68" y="20" width="24" height="65" fill="#10b981" rx="4"/>
+      <rect x="102" y="10" width="24" height="75" fill="#f59e0b" rx="4"/>
+    </g>
+  </g>
+
+  <!-- Ribbon -->
+  <g transform="translate(340,270)">
+    <rect x="0" y="0" width="200" height="50" rx="8" fill="url(#a2)"/>
+    <text x="100" y="32" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#fff">Excellence & Impact</text>
+  </g>
+</svg>

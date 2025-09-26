@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Topic Practice - PMP Mock Testing Platform</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/topic-practice.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <header class="page-header">
+    <div class="container header-inner">
+      <h1>Topic-wise Practice</h1>
+      <div class="header-actions">
+        <a class="btn btn-secondary" href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container practice-container">
+    <section class="config card">
+      <h2>Create a Topic Practice Set</h2>
+      <div class="grid-3">
+        <div class="form-group">
+          <label>Domain</label>
+          <select id="domain">
+            <option value="People">People</option>
+            <option value="Process">Process</option>
+            <option value="Business Environment">Business Environment</option>
+            <option value="Agile">Agile</option>
+            <option value="Hybrid">Hybrid</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Questions</label>
+          <select id="count">
+            <option value="10">10</option>
+            <option value="20" selected>20</option>
+            <option value="30">30</option>
+            <option value="40">40</option>
+            <option value="50">50</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Timer (minutes)</label>
+          <input type="number" id="minutes" value="30" min="5" max="230" />
+        </div>
+      </div>
+      <button class="btn btn-primary" onclick="startPractice()"><i class="fas fa-play"></i> Start Practice</button>
+    </section>
+
+    <section class="suggestions card">
+      <h2>Suggested Topics</h2>
+      <div class="chips" id="suggestedChips">
+        <!-- populated via JS using last results -->
+      </div>
+    </section>
+  </main>
+
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/questions.js"></script>
+  <script src="js/topic-practice.js"></script>
+</body>
+</html>

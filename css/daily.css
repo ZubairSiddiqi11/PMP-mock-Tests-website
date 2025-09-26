@@ -1,0 +1,18 @@
+/* Daily Challenge Styles */
+body { background:#f8f9fa; margin:0; }
+.page-header { background:#fff; box-shadow:var(--shadow-md); }
+.header-inner { display:flex; align-items:center; justify-content:space-between; padding:16px 20px; }
+.daily-container { padding:24px 0 60px; }
+.daily-card { background:#fff; border-radius:16px; box-shadow:var(--shadow-md); padding:18px; }
+.daily-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; }
+.streak, .timer { display:flex; align-items:center; gap:8px; color:var(--dark-color); }
+.question { background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:18px; line-height:1.7; }
+.options { display:grid; gap:10px; margin-top:12px; }
+.option { background:#f8f9fa; border:2px solid transparent; border-radius:10px; padding:14px; cursor:pointer; display:flex; gap:10px; align-items:flex-start; }
+.option:hover { background:#f3f4f6; border-color:var(--primary-color); }
+.option.selected { background:#eff6ff; border-color:var(--primary-color); }
+.daily-footer { display:flex; align-items:center; justify-content:space-between; margin-top:14px; }
+.progress .bar { width:220px; height:10px; background:#e5e7eb; border-radius:9999px; overflow:hidden; }
+.progress .fill { height:100%; background:linear-gradient(90deg,#667eea,#764ba2); }
+.results.card { background:#fff; border-radius:16px; box-shadow:var(--shadow-md); padding:18px; margin-top:18px; }
+.result-actions { margin-top:12px; }
